@@ -1,11 +1,14 @@
 import React from "react";
 
-const Card = ({ id, boardId, message, likes }) => {
+const Card = ({ id, boardId, message, likes, onLike }) => {
   return (
-    <ul>
-      <li>{message}</li>
-      {likes}
-    </ul>
+    <div className="message">
+      <p className="message-text">{message}</p>
+      <p className="likes">Likes: {likes}</p>
+      <button className="like-button" onClick={handleLike}>
+        👍
+      </button>
+    </div>
   );
 };
 
