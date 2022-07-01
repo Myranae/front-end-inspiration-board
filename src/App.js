@@ -8,58 +8,44 @@ const cardApiToJson = (card) => {
   return { id, boardId, likes, message };
 };
 
-const addCard = (cardData) => {
-  const requestBody = { ...cardData, likes: 0 };
+// const addCard = (cardData) => {
+//   const requestBody = { ...cardData, likes: 0 };
 
-  return axios
-    .post(`${process.env.REACT_APP_BACKEND_URL}/cards`, requestBody)
-    .then((response) => {
-      return cardApiToJson(response.data);
-    })
-    .catch((err) => {
-      console.log(err);
-      throw new Error("error adding card");
-    });
-};
-
-// const getCards = () => {
 //   return axios
-//     .get(`${process.env.REACT_APP_BACKEND_URL}/boards/1/cards`)
+//     .post(`${process.env.REACT_APP_BACKEND_URL}/cards`, requestBody)
 //     .then((response) => {
-//       return response.data.cards.map(cardApiToJson);
+//       return cardApiToJson(response.data);
 //     })
 //     .catch((err) => {
 //       console.log(err);
+//       throw new Error("error adding card");
 //     });
 // };
 
-// getCards();
+const getCards = (id) => {
+  return axios
+    .get(`${process.env.REACT_APP_BACKEND_URL}/boards/${id}/cards`)
+    .then((response) => {
+      return response.data.cards.map(cardApiToJson);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+getCards();
 function App() {
   const [cardData, setCardData] = useState([]);
 
   const updateCards = () => {
-    addCard()
-      .then((cards) => {
-        setCardData(cards);
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    getCards().then((card) => {
+      setCardData(card);
+    });
   };
 
   useEffect(() => {
     updateCards();
   }, []);
-
-  // const updateCards = () => {
-  //   getCards().then((card) => {
-  //     setCardData(card);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   updateCards();
-  // }, []);
 
   return (
     <div className="App">
