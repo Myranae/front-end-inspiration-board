@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.950a93eb.css",
+    "main.js": "/static/js/main.2cb2df2d.js",
+    "static/js/787.7ab17afa.chunk.js": "/static/js/787.7ab17afa.chunk.js",
+    "static/media/swirl_pattern.png": "/static/media/swirl_pattern.9295b7b617752eb98f51.png",
+    "index.html": "/index.html",
+    "main.950a93eb.css.map": "/static/css/main.950a93eb.css.map",
+    "main.2cb2df2d.js.map": "/static/js/main.2cb2df2d.js.map",
+    "787.7ab17afa.chunk.js.map": "/static/js/787.7ab17afa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.950a93eb.css",
+    "static/js/main.2cb2df2d.js"
+  ]
+}
